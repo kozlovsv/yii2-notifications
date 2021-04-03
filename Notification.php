@@ -1,8 +1,8 @@
 <?php
 
-namespace webzop\notifications;
+namespace kozlovsv\notifications;
 
-use webzop\notifications\model\Notifications;
+use kozlovsv\notifications\model\Notifications;
 use Yii;
 use yii\base\InvalidConfigException;
 

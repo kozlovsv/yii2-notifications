@@ -15,10 +15,10 @@
     },
     "autoload": {
         "psr-4": {
-            "webzop\\notifications\\": ""
+            "kozlovsv\\notifications\\": ""
         }
     },
     "extra": {
-        "bootstrap": "webzop\\notifications\\Bootstrap"
+        "bootstrap": "kozlovsv\\notifications\\Bootstrap"
     },
 }

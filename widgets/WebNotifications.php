@@ -1,10 +1,10 @@
 <?php
 
-namespace webzop\notifications\widgets;
+namespace kozlovsv\notifications\widgets;
 
 use Exception;
-use webzop\notifications\channels\WebChannel;
-use webzop\notifications\WebNotificationsAsset;
+use kozlovsv\notifications\channels\WebChannel;
+use kozlovsv\notifications\WebNotificationsAsset;
 use yii\helpers\ArrayHelper;
 use Yii;
 use yii\helpers\Html;

@@ -13,7 +13,7 @@ class m270120_100001_init_web_notification_subscriptions extends Migration
      */
     public function up()
     {
-        /** @var /webzop/notifications/Module $module */
+        /** @var /kozlovsv/notifications/Module $module */
         $module = Yii::$app->getModule('notifications');
         if(is_null($module)) return true;
         // If not set channel do nothing

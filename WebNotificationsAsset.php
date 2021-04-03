@@ -1,6 +1,6 @@
 <?php
 
-namespace webzop\notifications;
+namespace kozlovsv\notifications;
 
 use yii\web\AssetBundle;
 use yii\web\View;
@@ -8,7 +8,7 @@ use yii\web\View;
 /**
  * Class NotificationsAsset
  *
- * @package webzop\notifications
+ * @package kozlovsv\notifications
  */
 class WebNotificationsAsset extends AssetBundle
 {

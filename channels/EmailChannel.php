@@ -1,12 +1,12 @@
 <?php
 
-namespace webzop\notifications\channels;
+namespace kozlovsv\notifications\channels;
 
 use Yii;
 use yii\di\Instance;
 use yii\base\InvalidConfigException;
-use webzop\notifications\Channel;
-use webzop\notifications\Notification;
+use kozlovsv\notifications\Channel;
+use kozlovsv\notifications\Notification;
 
 class EmailChannel extends Channel
 {
@@ -45,7 +45,7 @@ class EmailChannel extends Channel
 
     /**
      * Composes a mail message with the given body content.
-     * @param \webzop\notifications\Notification $notification the body content
+     * @param \kozlovsv\notifications\Notification $notification the body content
      * @return \yii\mail\MessageInterface $message
      * @throws InvalidConfigException
      */

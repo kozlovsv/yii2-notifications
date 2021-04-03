@@ -1,6 +1,6 @@
 <?php
 
-namespace webzop\notifications;
+namespace kozlovsv\notifications;
 
 use Yii;
 use yii\base\InvalidParamException;
@@ -10,7 +10,7 @@ class Module extends \yii\base\Module
 
     public $channels = [];
 
-    public $controllerNamespace = 'webzop\notifications\controllers';
+    public $controllerNamespace = 'kozlovsv\notifications\controllers';
 
 
     /**

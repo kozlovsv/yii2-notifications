@@ -1,21 +1,21 @@
 <?php
 
-namespace webzop\notifications\channels;
+namespace kozlovsv\notifications\channels;
 
 use ErrorException;
 use Minishlink\WebPush\MessageSentReport;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use webzop\notifications\Channel;
-use webzop\notifications\model\WebPushSubscription;
-use webzop\notifications\Notification;
+use kozlovsv\notifications\Channel;
+use kozlovsv\notifications\model\WebPushSubscription;
+use kozlovsv\notifications\Notification;
 use Minishlink\WebPush\WebPush;
 
 
 /**
  * Class WebChannel
  *
- * @package webzop\notifications\channels
+ * @package kozlovsv\notifications\channels
  */
 class WebChannel extends Channel
 {

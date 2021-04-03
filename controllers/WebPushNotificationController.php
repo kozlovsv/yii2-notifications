@@ -1,9 +1,9 @@
 <?php
 
-namespace webzop\notifications\controllers;
+namespace kozlovsv\notifications\controllers;
 
 use http\Exception\InvalidArgumentException;
-use webzop\notifications\model\WebPushSubscription;
+use kozlovsv\notifications\model\WebPushSubscription;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;

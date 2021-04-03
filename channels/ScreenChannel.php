@@ -1,10 +1,10 @@
 <?php
 
-namespace webzop\notifications\channels;
+namespace kozlovsv\notifications\channels;
 
 use Yii;
-use webzop\notifications\Channel;
-use webzop\notifications\Notification;
+use kozlovsv\notifications\Channel;
+use kozlovsv\notifications\Notification;
 
 class ScreenChannel extends Channel
 {
