@@ -15,8 +15,8 @@ var Notifications = (function(opts) {
     var options = $.extend({
         pollInterval: 60000,
         xhrTimeout: 2000,
-        readLabel: 'read',
-        markAsReadLabel: 'mark as read'
+        readLabel: 'прочитано',
+        markAsReadLabel: 'Отметить как прочитанное'
     }, opts);
 
     /**
@@ -79,6 +79,8 @@ var Notifications = (function(opts) {
 
                     if(object.url){
                         item.on('click', function(e) {
+                            var mark = item.find('.mark-read').click();
+                            markRead(mark);
                             document.location = object.url;
                         });
                     }
@@ -104,6 +106,7 @@ var Notifications = (function(opts) {
     });
 
     elem.find('.read-all').on('click', function(e){
+        if (!confirm("Отметить все сообщения как прочитано?")) return false;
         e.stopPropagation();
         var link = $(this);
         $.ajax({
@@ -113,8 +116,8 @@ var Notifications = (function(opts) {
             timeout: opts.xhrTimeout,
             success: function (data) {
                 markRead(elem.find('.dropdown-item:not(.read)').find('.mark-read'));
+                setCount(0, 0);
                 link.off('click').on('click', function(){ return false; });
-                updateCount();
             }
         });
     });
@@ -122,7 +125,7 @@ var Notifications = (function(opts) {
     var markRead = function(mark){
         mark.off('click').on('click', function(){ return false; });
         mark.attr('title', options.readLabel);
-        mark.tooltip('dispose').tooltip();
+        mark.tooltip('destroy');
         mark.closest('.dropdown-item').addClass('read');
     };
 

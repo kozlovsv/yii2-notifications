@@ -1,5 +1,5 @@
 .nav-notifications .dropdown-menu {
-    width: 260px;
+    width: 350px;
     padding: 0;
     margin-top: 3px !important;
 }
@@ -9,13 +9,18 @@
     padding: 8px 12px;
     color: #868e96;
     white-space: nowrap;
-
 }
+
+#notifications-items {
+    list-style-type: none;
+}
+
 .nav-notifications .footer {
     background-color: #f5f5f5;
     white-space: nowrap;
     border-top: 1px solid #e5e5e5;
     text-align: center;
+    padding: 5px;
 }
 .nav-notifications .empty-row {
     display: none;
@@ -32,33 +37,28 @@
     display: table-cell;
     vertical-align: middle;
 }
-
-#notifications-items {
-    list-style-type: none;
-    padding: 5px;
-}
-
 .nav-notifications .label {
     position: absolute;
     top: 7px;
     right: 0;
 }
-
 .notification-item {
     position: relative;
     background-color: #f6f6fc;
     border-bottom: 1px solid #f1f1f1;
-    white-space: nowrap;
+    white-space: normal;
     cursor: pointer;
     text-overflow: ellipsis;
     _overflow: hidden;
-    padding: 9px 60px 9px 14px;
+    padding: 20px 30px 10px 10px;
+    font-weight: bold;
 }
 .notification-item:last-child {
     border-bottom: 0;
 }
 .notification-item.read {
     background-color: #fff;
+    font-weight: normal;
 }
 .notification-item:hover {
     background-color: #f9f9fc;
@@ -110,4 +110,16 @@
 }
 .notification-item.read:hover .mark-read {
     background-color: #bcbcbc;
+}
+
+.notification-index .page-header {
+    margin: 10px 0 10px
+}
+
+.notification-index .page-header .buttons {
+    margin-bottom: 25px;
+}
+
+.notification-index .page-content ul {
+    padding-left: 10px;
 }

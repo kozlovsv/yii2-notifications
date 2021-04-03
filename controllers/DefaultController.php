@@ -3,7 +3,6 @@
 namespace webzop\notifications\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\db\Query;
 use yii\data\Pagination;
@@ -13,21 +12,6 @@ use webzop\notifications\widgets\Notifications;
 
 class DefaultController extends Controller
 {
-
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ]
-                ]
-            ],
-        ];
-    }
 
     public $layout = "@app/views/layouts/main";
 
@@ -41,7 +25,7 @@ class DefaultController extends Controller
         $userId = Yii::$app->getUser()->getId();
         $query = (new Query())
             ->from('{{%notifications}}')
-            ->andWhere(['or', 'user_id = 0', 'user_id = :user_id'], [':user_id' => $userId]);
+            ->andWhere(['user_id' => $userId]);
 
         $pagination = new Pagination([
             'pageSize' => 20,
@@ -67,9 +51,9 @@ class DefaultController extends Controller
         $userId = Yii::$app->getUser()->getId();
         $list = (new Query())
             ->from('{{%notifications}}')
-            ->andWhere(['or', 'user_id = 0', 'user_id = :user_id'], [':user_id' => $userId])
+            ->andWhere(['user_id' => $userId])
             ->orderBy(['id' => SORT_DESC])
-            ->limit(10)
+            ->limit(7)
             ->all();
         $notifs = $this->prepareNotifications($list);
         $this->ajaxResponse(['list' => $notifs]);
@@ -83,7 +67,7 @@ class DefaultController extends Controller
 
     public function actionRead($id)
     {
-        Yii::$app->getDb()->createCommand()->update('{{%notifications}}', ['read' => true], ['id' => $id])->execute();
+        Yii::$app->getDb()->createCommand()->update('{{%notifications}}', ['read' => true, 'seen' => true], ['id' => $id, 'user_id' => Yii::$app->getUser()->getId()])->execute();
 
         if(Yii::$app->getRequest()->getIsAjax()){
             return $this->ajaxResponse(1);
@@ -94,11 +78,11 @@ class DefaultController extends Controller
 
     public function actionReadAll()
     {
-        Yii::$app->getDb()->createCommand()->update(
-            '{{%notifications}}',
-            ['read' => true, 'seen' => true],
-            ['user_id' => Yii::$app->user->id]
-            )->execute();
+        Yii::$app
+            ->getDb()
+            ->createCommand()
+            ->update('{{%notifications}}', ['read' => true, 'seen' => true], ['user_id' => Yii::$app->getUser()->getId()])
+            ->execute();
         if(Yii::$app->getRequest()->getIsAjax()){
             return $this->ajaxResponse(1);
         }
@@ -110,7 +94,10 @@ class DefaultController extends Controller
 
     public function actionDeleteAll()
     {
-        Yii::$app->getDb()->createCommand()->delete('{{%notifications}}')->execute();
+        Yii::$app->getDb()
+            ->createCommand()
+            ->delete('{{%notifications}}', ['user_id' => Yii::$app->getUser()->getId()])
+            ->execute();
 
         if(Yii::$app->getRequest()->getIsAjax()){
             return $this->ajaxResponse(1);
@@ -157,5 +144,4 @@ class DefaultController extends Controller
         }
         return $this->asJson($data);
     }
-
 }
