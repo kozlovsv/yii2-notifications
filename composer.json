@@ -11,7 +11,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=7.1",
-        "yiisoft/yii2": "~2.0.13",
+        "yiisoft/yii2": "~2.0.13"
     },
     "autoload": {
         "psr-4": {
@@ -20,5 +20,5 @@
     },
     "extra": {
         "bootstrap": "kozlovsv\\notifications\\Bootstrap"
-    },
+    }
 }
