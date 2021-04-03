@@ -1,5 +1,5 @@
 {
-    "name": "webzop/yii2-notifications",
+    "name": "kozlovsv/yii2-notifications",
     "description": "Notifications module for Yii2",
     "type": "yii2-extension",
     "keywords": [
@@ -8,19 +8,10 @@
         "yii2-notifications-module",
         "yii2-manage-notifications"
     ],
-    "authors": [
-        {
-            "name": "Gonçalo Esteves",
-            "email": "goncalo.p.esteves@gmail.com",
-            "homepage": "https://webzop.com",
-            "role": "Developer"
-        }
-    ],
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=7.1",
         "yiisoft/yii2": "~2.0.13",
-        "minishlink/web-push": "^5.2"
     },
     "autoload": {
         "psr-4": {
@@ -30,10 +21,4 @@
     "extra": {
         "bootstrap": "webzop\\notifications\\Bootstrap"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
 }
