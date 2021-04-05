@@ -44,7 +44,9 @@ class m270120_100001_init_web_notification_subscriptions extends Migration
      */
     public function down()
     {
-        $this->dropTable('{{%web_push_subscription}}');
+        if ($this->db->getTableSchema('{{%web_push_subscription}}', true) !== null) {
+            $this->dropTable('{{%web_push_subscription}}');
+        }
         return true;
     }
 }
