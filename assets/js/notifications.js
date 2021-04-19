@@ -30,7 +30,6 @@ var Notifications = (function(opts) {
             ' data-id="' + object.id + '"' +
             ' data-class="' + object.class + '"' +
             ' data-key="' + object.key + '">' +
-            '<span class="icon"></span> '+
             '<span class="message hide-long-text">' + object.message + '</span>' +
             '<small class="timeago">' + object.timeago + '</small>' +
             '<span class="mark-read" data-toggle="tooltip" title="' + (object.read != '0' ? options.readLabel : options.markAsReadLabel) + '"></span>' +

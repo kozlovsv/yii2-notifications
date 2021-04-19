@@ -63,33 +63,7 @@
 .notification-item:hover {
     background-color: #f9f9fc;
 }
-.notification-item .icon {
-    width: 18px;
-    display: inline-block;
-    position: relative;
-    top: 1px;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-}
-.notification-item[data-key="new_order"] .icon:before {
-    content: "\e028";
-    color: #00a65a;
-}
-.notification-item[data-key="cancelled_order"] .icon:before {
-    content: "\e209";
-    color: #e98400;
-}
-.notification-item[data-key="failed_order"] .icon:before {
-    content: "\e162";
-    color: #e90805;
-}
-.notification-item[data-key="new_account"] .icon:before {
-    content: "\e008";
-    color: #248292;
-}
+
 .notification-item .timeago {
     color: #999999;
     font-size: 10px;
@@ -124,9 +98,10 @@
     padding-left: 10px;
 }
 
-.notifications-list .hide-long-text {
+.notifications-list .hide-long-message {
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
