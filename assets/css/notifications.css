@@ -123,3 +123,10 @@
 .notification-index .page-content ul {
     padding-left: 10px;
 }
+
+.notifications-list .hide-long-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
