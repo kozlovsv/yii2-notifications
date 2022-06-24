@@ -13,8 +13,6 @@ use kozlovsv\notifications\widgets\Notifications;
 class DefaultController extends Controller
 {
 
-    public $layout = "@app/views/layouts/main";
-
     /**
      * Displays index page.
      *
