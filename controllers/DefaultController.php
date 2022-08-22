@@ -12,9 +12,6 @@ use kozlovsv\notifications\widgets\Notifications;
 
 class DefaultController extends Controller
 {
-    public $homeUrl = '/notifications/default/index';
-    public $indexViewName = 'index';
-
     /**
      * Displays index page.
      *
@@ -40,7 +37,7 @@ class DefaultController extends Controller
 
         $notifs = $this->prepareNotifications($list);
 
-        return $this->render($this->indexViewName, [
+        return $this->render('index', [
             'notifications' => $notifs,
             'pagination' => $pagination,
         ]);
@@ -73,7 +70,7 @@ class DefaultController extends Controller
             return $this->ajaxResponse(1);
         }
 
-        return Yii::$app->getResponse()->redirect([$this->homeUrl]);
+        return $this->redirect('index');
     }
 
     public function actionReadAll()
@@ -89,7 +86,7 @@ class DefaultController extends Controller
 
         Yii::$app->getSession()->setFlash('success', Yii::t('modules/notifications', 'All notifications have been marked as read.'));
 
-        return Yii::$app->getResponse()->redirect([$this->homeUrl]);
+        return $this->redirect('index');
     }
 
     public function actionDeleteAll()
@@ -105,7 +102,7 @@ class DefaultController extends Controller
 
         Yii::$app->getSession()->setFlash('success', Yii::t('modules/notifications', 'All notifications have been deleted.'));
 
-        return Yii::$app->getResponse()->redirect([$this->homeUrl]);
+        return $this->redirect('index');
     }
 
     private function prepareNotifications($list){

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\widgets\LinkPager;
 
 $this->title = Yii::t('modules/notifications', 'Notifications');
-$js = "var readUrl = '" . Url::to(['/notifications/default/read']) . "';\r\n";
+$js = "var readUrl = '" . Url::to(['read']) . "';\r\n";
 $js .= <<<JS
     $('li.notification-item').on('click', function(){
         var item = $(this);
@@ -28,9 +28,9 @@ $this->registerJs($js, $this::POS_END);
 <div class="notification-index">
     <div class="page-header">
         <div class="buttons">
-            <a class="btn btn-danger" href="<?= Url::toRoute(['/notifications/default/delete-all']) ?>"
+            <a class="btn btn-danger" href="<?= Url::toRoute(['delete-all']) ?>"
                data-confirm="<?= Yii::t('modules/notifications', 'Are you sure you want to delete all notification?'); ?>"><?= Yii::t('modules/notifications', 'Delete all'); ?></a>
-            <a class="btn btn-warning" href="<?= Url::toRoute(['/notifications/default/read-all']) ?>"
+            <a class="btn btn-warning" href="<?= Url::toRoute(['read-all']) ?>"
                data-confirm="<?= Yii::t('modules/notifications', 'Mark all messages as read?'); ?>"><?= Yii::t('modules/notifications', 'Mark all as read'); ?></a>
         </div>
         <h1>
@@ -51,10 +51,10 @@ $this->registerJs($js, $this::POS_END);
                         </a>
                         <small class="timeago"><?= $notif['timeago']; ?></small>
                         <?php if (!$notif['read']): ?>
-                        <a href="<?= Url::toRoute(['/notifications/default/read', 'id' => $notif['id']]) ?>"
-                           class="mark-read"
-                           title="<?= Yii::t('modules/notifications', 'Mark as read') ?>">
-                        </a>
+                            <a href="<?= Url::toRoute(['read', 'id' => $notif['id']]) ?>"
+                               class="mark-read"
+                               title="<?= Yii::t('modules/notifications', 'Mark as read') ?>">
+                            </a>
                         <?php endif; ?>
                     </li>
                 <?php endforeach; ?>
