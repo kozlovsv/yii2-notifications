@@ -11,7 +11,8 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=7.1",
-        "yiisoft/yii2": "~2.0.13"
+        "yiisoft/yii2": "~2.0.13",
+        "sonko-dmitry/yii2-telegram-bot-api": "*"
     },
     "autoload": {
         "psr-4": {
